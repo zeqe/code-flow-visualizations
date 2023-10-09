@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>code flow!</title>
+		
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+				
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				display: flex;
+				
+				justify-content: center;
+				align-items: center;
+				
+				background-color: #faf6dd;
+			}
+			
+			.spacer {
+				height: 1em;
+			}
+			
+			#page #title {
+				width: 100%;
+				margin: 0;
+				
+				color: #2e2a2e;
+				
+				font-size: 5em;
+				text-align: center;
+			}
+			
+			#page #demolist {
+				display: flex;
+				
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				align-content: center;
+			}
+			
+			.demoitem {
+				margin: 0 0.809em;
+			}
+			
+			.demoitem a:link, .demoitem a:visited, .demoitem a:hover, .demoitem a:active {
+				text-decoration: none;
+			}
+			
+			.codebutton {
+				display: flex;
+				
+				justify-content: center;
+				align-items: center;
+				
+				height: 3em;
+				width: 7em;
+				border-radius: 5px;
+				
+				background-color: #2e2a2e;
+				color: #ebebeb;
+			}
+			
+			.codebutton .if {
+				color: #ac92eb;
+			}
+			
+			.codebutton .while {
+				color: #4fc1e8;
+			}
+			
+			.codebutton .do-while {
+				color: #a0d568;
+			}
+			
+			.codebutton .for {
+				color: #ffce54;
+			}
+			
+			.codebutton .switch {
+				color: #ed5564;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="page">
+			<h1 id="title"><code>code flow!</code></h1>
+			<div class="spacer"></div>
+			<div id="demolist">
+				<div class="demoitem"><a href="code.html"><code class="codebutton">code</code></a></div>
+				<div class="demoitem"><a href="if.html"><code class="codebutton"><span class="if">if</span></code></a></div>
+				<div class="demoitem"><a href="while.html"><code class="codebutton"><span class="while">while</span></code></a></div>
+				<div class="demoitem"><a href="do-while.html"><code class="codebutton"><span class="do-while">do-while</span></code></a></div>
+				<div class="demoitem"><a href="for.html"><code class="codebutton"><span class="for">for</span></code></a></div>
+				<div class="demoitem"><a href="switch.html"><code class="codebutton"><span class="switch">switch</span></code></a></div>
+			</div>
+		</div>
+	</body>
+</html>

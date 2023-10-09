@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<script>
+		var frames = [
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div><span class="current_step">do thing 1</span>;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div><span class="current_step">do thing 2</span>;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div><span class="current_step">do thing 3</span>;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(<span class="choice_question current_step">&nbsp;&nbsp;?</span>){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(<span class="choice_negative current_step">&nbsp;&nbsp;&nbsp;</span>){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div><span class="current_step">do thing 6</span>;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div><span class="current_step">do thing 7</span>;</div>`
+			,
+			
+			// ========================================================================================================
+			
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div><span class="current_step">do thing 1</span>;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div><span class="current_step">do thing 2</span>;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div><span class="current_step">do thing 3</span>;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(<span class="choice_question current_step">&nbsp;&nbsp;?</span>){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(<span class="choice_affirmative current_step">&nbsp;&nbsp;&nbsp;</span>){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="current_step">do thing 4</span>;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="current_step">do thing 5</span>;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			
+			//
+			
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div><span class="current_step">do thing 6</span>;</div>` +
+			`<div>do thing 7;</div>`
+			,
+			`<div>do thing 1;</div>` +
+			`<div>do thing 2;</div>` +
+			`<div>do thing 3;</div>` +
+			`<br>` +
+			`<div><span class="if">if</span>(&nbsp;&nbsp;&nbsp;){</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 4;</div>` +
+			`<div>&nbsp;&nbsp;&nbsp;&nbsp;do thing 5;</div>` +
+			`<div>}</div>` +
+			`<br>` +
+			`<div>do thing 6;</div>` +
+			`<div><span class="current_step">do thing 7</span>;</div>`
+		];
+		
+		var current_frame = 0;
+		
+		function set_frame(i){
+			current_frame = (frames.length + i) % frames.length;
+			document.getElementById("codeview").innerHTML = frames[current_frame];
+		}
+		
+		function on_key_down(e){
+			if(e.key == "ArrowRight"){ set_frame(current_frame + 1); }
+		}
+	</script>
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>if</title>
+		
+		<style>
+			html, body {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background-color: #faf6dd;
+			}
+			
+			.spacer {
+				height: 3.236em;
+			}
+			
+			#howto {
+				display: block;
+				
+				width: 647px;
+				margin: 0 auto;
+				
+				color: #2e2a2e;
+			}
+			
+			#codeview {
+				display: block;
+				
+				height: 400px;
+				width: 647px;
+				
+				margin: 0 auto;
+				padding: 1.618em;
+				
+				background-color: #2e2a2e;
+				color: #ebebeb;
+				
+				border-radius: 5px;
+			}
+			
+			#codeview .current_step {
+				background-color: #ebebeb;
+				color: #2e2a2e;
+				
+				border-radius: 3px;
+			}
+			
+			#codeview .choice_question.current_step {
+				background-color: yellow;
+				color: #2e2a2e;
+			}
+			
+			#codeview .choice_affirmative.current_step {
+				background-color: lime;
+				color: #2e2a2e;
+			}
+			
+			#codeview .choice_negative.current_step {
+				background-color: red;
+				color: #2e2a2e;
+			}
+			
+			#codeview .if {
+				color: #ac92eb;
+			}
+			
+			#codeview .while {
+				color: #4fc1e8;
+			}
+			
+			#codeview .do-while {
+				color: #a0d568;
+			}
+			
+			#codeview .for {
+				color: #ffce54;
+			}
+			
+			#codeview .switch {
+				color: #ed5564;
+			}
+			
+		</style>
+	</head>
+	
+	<body onload="set_frame(0)" onkeydown="on_key_down(event)">
+		<div class="spacer"></div>
+		<code id="codeview"></code>
+		<samp id="howto">Press &lt;right arrow&gt; to advance</samp>
+		<div class="spacer"></div>
+	</body>
+</html>
